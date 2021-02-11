@@ -1,13 +1,13 @@
 var journalData = require("../data/journalData");
 
 module.exports = function (app) {
-  app.get("/api/journals", function (req, res) {
-    res.json(journalData);
-  });
-
   app.post("/api/journals", function (req, res) {
     journalData.push(req.body);
     res.json("saved");
+  });
+
+  app.get("/api/journals", function (req, res) {
+    res.json(journalData);
   });
 
   app.delete("/api/journals/:index", function (req, res) {
